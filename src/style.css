@@ -1,3 +1,8 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
@@ -33,7 +38,7 @@
 .dragon-container{
 
   img{
-    width: 300px;
+    width: 250px;
   }
 }
 
@@ -43,16 +48,14 @@
   color: black;
   grid-column: 1/3;
   grid-row: 1/3;
+  overflow: auto;
 }
 
 .player-sprite-container{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
   grid-column: 3/4;
   grid-row: 2/3;
   img{
-    width: 120px;
+    width: 100px;
     animation: scale infinite 2s ease forwards;
   }
 }
@@ -72,18 +75,18 @@
 .player-stats{
   display: flex;
   flex-direction: column;
-  background-color: red;
+  justify-content: center;
 }
 
 .player-ui-container{
   grid-column: 1/ 5;
   grid-row: 3/5;
+  background-color: var(--player-ui-bg-color);
   display: flex;
   flex-direction: column;
-  background-color: var(--player-ui-bg-color);
+  justify-content: space-between;
+  height: 100%;
 }
-
-
 
 .player-health{
   background-color: red;
@@ -97,11 +100,12 @@
   grid-column: 1/5;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr)
+  grid-template-rows: repeat(2, 1fr);
+  height: 100%;
 }
 
 .player-container{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, 100px);
+  grid-template-rows: repeat(4, 1fr);
 }
