@@ -1,5 +1,6 @@
 import { isDragonTurn, setTurns } from "./globals.js";
 import { updatePlayerHealth } from "./stats.js";
+import { updateTextMenu } from "./ui.js";
 
 export const dragonAttack = () => {
   if (isDragonTurn) {
@@ -9,6 +10,6 @@ export const dragonAttack = () => {
 };
 
 const dragonMoveFlameBreath = () => {
-  alert("The dragon casts flame breath!");
+  updateTextMenu("The dragon casts flame breath for 30 🗡️")
   updatePlayerHealth(-30);
 };

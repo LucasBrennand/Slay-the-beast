@@ -5,6 +5,9 @@ export const playerStats = {
   playerCurrentMana: 150,
   playerMaxHealth: 100,
   playerMaxMana: 150,
+  playerHealthPots: 2,
+  playerManaPots: 2,
+  playerFullHealPot: 1
 };
 
 export const dragonStats = {

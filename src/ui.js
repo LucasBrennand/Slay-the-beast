@@ -1,5 +1,5 @@
-import { playersBtnsContainer, youLoseMsg } from "./globals.js";
-import { attackMove, itemMove } from "./moves.js";
+import { playersBtnsContainer, youLoseMsg, textContainer, youLoseBtn, resetGame } from "./globals.js";
+import { attackMove, itemMove, magicMove } from "./moves.js";
 
 export const homeBtns = () => {
   playersBtnsContainer.innerHTML = `
@@ -50,4 +50,14 @@ export const magicMenu = () => {
     <button id="goBack-btn">Go Back</button>
   `;
   document.querySelector("#goBack-btn").addEventListener("click", homeBtns);
+  document.querySelector("#magic-move-1").addEventListener("click", () => { magicMove("Fireball"); homeBtns(); });
+  document.querySelector("#magic-move-2").addEventListener("click", () => { magicMove("Barrier"); homeBtns(); });
+  document.querySelector("#magic-move-3").addEventListener("click", () => { magicMove("Enchant Sword"); homeBtns(); });
 };
+
+export const updateTextMenu = (comment) => {
+    let newLine = document.createElement("p")
+    newLine.textContent = comment
+    textContainer.appendChild(newLine)
+}
+

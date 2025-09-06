@@ -1,6 +1,6 @@
 import { homeBtns } from "./ui.js";
 import { playerStats, dragonStats } from "./stats.js";
-import { playerHealth, playerMana, dragonHealth, youLoseBtn, youLoseMsg } from "./globals.js";
+import { playerHealth, playerMana, dragonHealth, youLoseBtn, youLoseMsg, resetGame } from "./globals.js";
 
 function main() {
   homeBtns();
@@ -10,7 +10,7 @@ function main() {
   dragonHealth.textContent = dragonStats.dragonMaxHealth;
 
   youLoseBtn.addEventListener("click", () => {
-    youLoseMsg.style.display = "none";
+    resetGame();
   });
 }
 
