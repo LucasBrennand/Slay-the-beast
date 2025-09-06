@@ -1,19 +1,19 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: var(--primary-font);
 }
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  font-weight: 400;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --primary-font: "Silkscreen", serif;
   --primary-bg-color: #ffffff;
   --player-ui-bg-color: rgb(21, 101, 158);
+}
+
+body{
+  
 }
 .container {
   display: flex;
@@ -97,6 +97,7 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   height: 100%;
+  font-family: var(--primary-font);
 }
 .player-container {
   display: grid;
@@ -108,7 +109,7 @@
   left: 215px;
   top: 214px;
   width: 400px;
-  height: 400px;
+  height: 300px;
   background-color: white;
   z-index: 100;
   color: black;
@@ -118,6 +119,13 @@
   align-items: center;
   display: none;
   animation: fadeIn 0.5s ease-in;
+  gap: 20px;
+
+  button {
+    width: 50%;
+    height: 50px;
+    cursor: pointer;
+  }
 }
 @keyframes fadeIn {
   0% {

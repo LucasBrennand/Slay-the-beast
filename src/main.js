@@ -5,20 +5,27 @@ const playerHealth = document.querySelector("#player-health");
 const playerMana = document.querySelector("#player-mana");
 const textContainer = document.querySelector("#text-container");
 const youLoseMsg = document.querySelector(".you-lose");
+const youLoseBtn = document.querySelector("#you-lose-btn");
 let gameIsActive = true;
+let isPlayerTurn = true;
+let isDragonTurn = false;
+
+youLoseBtn.addEventListener("click", () => {
+  youLoseMsg.style.display = "none";
+});
 
 const playerStats = {
   playerCurrentHealth: 100,
   playerCurrentMana: 150,
   playerMaxHealth: 100,
-  playerMaxMana: 150
+  playerMaxMana: 150,
 };
 playerHealth.textContent = playerStats.playerMaxHealth;
 playerMana.textContent = playerStats.playerMaxMana;
 
 const dragonStats = {
   dragonCurrentHealth: 250,
-  dragonMaxHealth: 250
+  dragonMaxHealth: 250,
 };
 dragonHealth.textContent = dragonStats.dragonMaxHealth;
 
@@ -88,6 +95,37 @@ const itemMenu = () => {
     <button id="goBack-btn">Go Back</button>
     `;
   document.querySelector("#goBack-btn").addEventListener("click", homeBtns);
+  document.querySelector("#item-move-1").addEventListener("click", () => {
+    itemMove("Health Pot");
+    homeBtns();
+  });
+  document.querySelector("#item-move-2").addEventListener("click", () => {
+    itemMove("Mana Pot");
+    homeBtns();
+  });
+  document.querySelector("#item-move-3").addEventListener("click", () => {
+    itemMove("Full Heal");
+    homeBtns();
+  });
+};
+
+const itemMove = (option) => {
+  switch (option) {
+    case "Health Pot":
+      updatePlayerHealth(20);
+      break;
+    case "Mana Pot":
+      updatePlayerHealth(-30);
+      break;
+    case "Full Heal":
+      let chance = Math.floor(Math.random() * 10 + 1);
+      if (chance > 3) {
+        updateDragonHealth(-50);
+      }
+      break;
+    default:
+      console.log("error");
+  }
 };
 
 const magicMenu = () => {
@@ -102,12 +140,37 @@ const magicMenu = () => {
 
 const updateDragonHealth = (modifier) => {
   dragonStats.dragonCurrentHealth += modifier;
-  if (dragonStats.dragonCurrentHealth < 0) {
+  if (dragonStats.dragonCurrentHealth <= 0) {
     dragonStats.dragonCurrentHealth = 0;
     alert("The dragon was defeated!");
   }
   dragonHealth.textContent = dragonStats.dragonCurrentHealth;
 };
+
+const updatePlayerHealth = (modifier) => {
+  playerStats.playerCurrentHealth += modifier;
+  if (playerStats.playerCurrentHealth <= 0) {
+    playerStats.playerCurrentHealth = 0;
+    youLoseMsg.style.display = "flex";
+  }
+};
+const updatePlayerMana = (modifier) => {
+  playerStats.playerCurrentMana += modifier;
+  if (playerStats.playerCurrentMana <= 0) {
+    playerStats.playerCurrentMana = 0;
+  }
+};
+
+const dragonAttack = () => {
+  dragonMoveFlameBreath();
+};
+
+const dragonMoveFlameBreath = () => {
+  if (isDragonTurn) {
+    playerStats.playerCurrentHealth -= 30;
+  }
+};
+
 function main() {
   homeBtns();
 }
