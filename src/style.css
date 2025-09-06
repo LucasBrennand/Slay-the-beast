@@ -10,6 +10,9 @@
   --primary-font: "Silkscreen", serif;
   --primary-bg-color: #ffffff;
   --player-ui-bg-color: rgb(21, 101, 158);
+  --player-health-bar-color: rgb(19, 157, 19);
+  --player-mana-bar-color: rgb(32, 32, 175);
+  --player-home-buttons-color: brown;
 }
 
 body{
@@ -86,10 +89,10 @@ body{
   height: 100%;
 }
 .player-health {
-  background-color: red;
+  background-color: var(--player-health-bar-color);
 }
 .player-mana {
-  background-color: blue;
+  background-color: var(--player-mana-bar-color);
 }
 .player-btns {
   grid-column: 1/5;
@@ -98,6 +101,13 @@ body{
   grid-template-rows: repeat(2, 1fr);
   height: 100%;
   font-family: var(--primary-font);
+  button{
+    background-color: var(--player-home-buttons-color);
+    &:hover{
+      opacity: 0.8;
+      cursor: pointer;
+    }
+  }
 }
 .player-container {
   display: grid;
