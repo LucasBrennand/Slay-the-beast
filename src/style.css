@@ -44,13 +44,15 @@ body {
   img {
     width: 300px;
   }
-  h1 {
-    background-color: red;
-    width: 100%;
-  }
+
   @media (max-width: 426px) {
-      flex-direction: column;
+    flex-direction: column;
   }
+}
+
+.dragon-health {
+  background-color: red;
+  width: 100%;
 }
 .text-container {
   color: white;
@@ -91,9 +93,12 @@ body {
 }
 .player-health {
   background-color: var(--player-health-bar-color);
+  width: 100%;
 }
+
 .player-mana {
   background-color: var(--player-mana-bar-color);
+  width: 100%;
 }
 .player-btns {
   grid-column: 1/5;
@@ -110,8 +115,8 @@ body {
     }
   }
   @media (max-width: 426px) {
-      grid-template-columns: repeat(1, 1fr);
-      grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, 1fr);
   }
 }
 .player-container {
@@ -143,9 +148,9 @@ body {
     height: 50px;
     cursor: pointer;
     background-color: var(--youlose-bg-color);
-    &:hover{
+    &:hover {
       transform: scale(1.5);
-      transition: ease-in; 
+      transition: ease-in;
       animation-duration: 2s;
     }
   }

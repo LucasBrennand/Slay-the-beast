@@ -1,6 +1,13 @@
 import { homeBtns } from "./ui.js";
 import { playerStats, dragonStats } from "./stats.js";
-import { playerHealth, playerMana, dragonHealth, youLoseBtn, youLoseMsg, resetGame } from "./globals.js";
+import {
+  playerHealth,
+  playerMana,
+  dragonHealth,
+  youLoseBtn,
+  youLoseMsg,
+  resetGame,
+} from "./globals.js";
 
 function main() {
   homeBtns();

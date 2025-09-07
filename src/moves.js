@@ -18,7 +18,7 @@ export const attackMove = (option) => {
         updateTextMenu(`You attacked with slash for ${Math.abs(dmgValue)} 🗡️`);
         setTurns(false, true);
         dragonAttack();
-        gameState.currentTurn++
+        gameState.currentTurn++;
         break;
       case "rage":
         dmgValue = -30;
@@ -31,7 +31,7 @@ export const attackMove = (option) => {
         );
         setTurns(false, true);
         dragonAttack();
-        gameState.currentTurn++
+        gameState.currentTurn++;
         break;
       case "cleave":
         dmgValue = -50;
@@ -46,7 +46,7 @@ export const attackMove = (option) => {
         }
         setTurns(false, true);
         dragonAttack();
-        gameState.currentTurn++
+        gameState.currentTurn++;
         break;
       default:
         throw new Error();
@@ -65,7 +65,7 @@ export const itemMove = (option) => {
           updatePlayerHealth(40);
           setTurns(false, true);
           dragonAttack();
-          gameState.currentTurn++
+          gameState.currentTurn++;
         } else {
           alert("You don't have any healh pots left!");
         }
@@ -75,7 +75,7 @@ export const itemMove = (option) => {
           playerStats.playerManaPots -= 1;
           setTurns(false, true);
           dragonAttack();
-          gameState.currentTurn++
+          gameState.currentTurn++;
         } else {
           alert("You don't have any mana pots left!");
         }
@@ -86,7 +86,7 @@ export const itemMove = (option) => {
           playerStats.playerCurrentHealth = playerStats.playerMaxHealth;
           setTurns(false, true);
           dragonAttack();
-          gameState.currentTurn++
+          gameState.currentTurn++;
         } else {
           alert("You don't have any full heal pots left!");
         }
@@ -110,26 +110,26 @@ export const magicMove = (option) => {
           updatePlayerMana(-40);
           setTurns(false, true);
           dragonAttack();
-          gameState.currentTurn++
+          gameState.currentTurn++;
         }
         break;
       case "Barrier":
         updatePlayerMana(30);
         setTurns(false, true);
         dragonAttack();
-        gameState.currentTurn++
+        gameState.currentTurn++;
         break;
       case "Enchant Sword":
         playerStats.playerCurrentHealth = playerStats.playerMaxHealth;
         updatePlayerHealth(0);
         setTurns(false, true);
         dragonAttack();
-        gameState.currentTurn++
+        gameState.currentTurn++;
         break;
       default:
-        throw new error;
+        throw new error();
     }
   } catch (error) {
-    console.error("error found",error)
+    console.error("error found", error);
   }
 };

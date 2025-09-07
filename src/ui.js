@@ -1,5 +1,15 @@
-import { playersBtnsContainer, youLoseMsg, textContainer, youLoseBtn, resetGame } from "./globals.js";
+import {
+  playersBtnsContainer,
+  youLoseMsg,
+  textContainer,
+  youLoseBtn,
+  resetGame,
+} from "./globals.js";
 import { attackMove, itemMove, magicMove } from "./moves.js";
+
+export const playerHealthBar = document.querySelector(".player-health");
+export const playerManaBar = document.querySelector(".player-mana");
+export const dragonHealthBar = document.querySelector(".dragon-health");
 
 export const homeBtns = () => {
   playersBtnsContainer.innerHTML = `
@@ -24,9 +34,18 @@ export const attackMenu = () => {
     <button id="goBack-btn">Go Back</button>
   `;
   document.querySelector("#goBack-btn").addEventListener("click", homeBtns);
-  document.querySelector("#attack-move-1").addEventListener("click", () => { attackMove("slash"); homeBtns(); });
-  document.querySelector("#attack-move-2").addEventListener("click", () => { attackMove("rage"); homeBtns(); });
-  document.querySelector("#attack-move-3").addEventListener("click", () => { attackMove("cleave"); homeBtns(); });
+  document.querySelector("#attack-move-1").addEventListener("click", () => {
+    attackMove("slash");
+    homeBtns();
+  });
+  document.querySelector("#attack-move-2").addEventListener("click", () => {
+    attackMove("rage");
+    homeBtns();
+  });
+  document.querySelector("#attack-move-3").addEventListener("click", () => {
+    attackMove("cleave");
+    homeBtns();
+  });
 };
 
 export const itemMenu = () => {
@@ -37,9 +56,18 @@ export const itemMenu = () => {
     <button id="goBack-btn">Go Back</button>
   `;
   document.querySelector("#goBack-btn").addEventListener("click", homeBtns);
-  document.querySelector("#item-move-1").addEventListener("click", () => { itemMove("Health Pot"); homeBtns(); });
-  document.querySelector("#item-move-2").addEventListener("click", () => { itemMove("Mana Pot"); homeBtns(); });
-  document.querySelector("#item-move-3").addEventListener("click", () => { itemMove("Full Heal"); homeBtns(); });
+  document.querySelector("#item-move-1").addEventListener("click", () => {
+    itemMove("Health Pot");
+    homeBtns();
+  });
+  document.querySelector("#item-move-2").addEventListener("click", () => {
+    itemMove("Mana Pot");
+    homeBtns();
+  });
+  document.querySelector("#item-move-3").addEventListener("click", () => {
+    itemMove("Full Heal");
+    homeBtns();
+  });
 };
 
 export const magicMenu = () => {
@@ -50,14 +78,22 @@ export const magicMenu = () => {
     <button id="goBack-btn">Go Back</button>
   `;
   document.querySelector("#goBack-btn").addEventListener("click", homeBtns);
-  document.querySelector("#magic-move-1").addEventListener("click", () => { magicMove("Fireball"); homeBtns(); });
-  document.querySelector("#magic-move-2").addEventListener("click", () => { magicMove("Barrier"); homeBtns(); });
-  document.querySelector("#magic-move-3").addEventListener("click", () => { magicMove("Enchant Sword"); homeBtns(); });
+  document.querySelector("#magic-move-1").addEventListener("click", () => {
+    magicMove("Fireball");
+    homeBtns();
+  });
+  document.querySelector("#magic-move-2").addEventListener("click", () => {
+    magicMove("Barrier");
+    homeBtns();
+  });
+  document.querySelector("#magic-move-3").addEventListener("click", () => {
+    magicMove("Enchant Sword");
+    homeBtns();
+  });
 };
 
 export const updateTextMenu = (comment) => {
-    let newLine = document.createElement("p")
-    newLine.textContent = comment
-    textContainer.appendChild(newLine)
-}
-
+  let newLine = document.createElement("p");
+  newLine.textContent = comment;
+  textContainer.appendChild(newLine);
+};

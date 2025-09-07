@@ -5,7 +5,7 @@ import { updateTextMenu } from "./ui.js";
 export const dragonAttack = () => {
   if (gameState.isDragonTurn) {
     let dragonMoveChance = Math.floor(Math.random() * 10 + 1);
-    console.log("Dragon chance: ",dragonMoveChance)
+    console.log("Dragon chance: ", dragonMoveChance);
     if (dragonMoveChance > 3) {
       dragonMoveFlameBreath();
     } else if (dragonMoveChance < 4 && dragonMoveChance > 2) {
