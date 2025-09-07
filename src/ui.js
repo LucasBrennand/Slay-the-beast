@@ -18,14 +18,14 @@ export const homeBtns = () => {
 
 export const attackMenu = () => {
   playersBtnsContainer.innerHTML = `
-    <button id="attack-move-1">Rage</button>
-    <button id="attack-move-2">Slash</button>
+    <button id="attack-move-1">Slash</button>
+    <button id="attack-move-2">Rage</button>
     <button id="attack-move-3">Cleave</button>
     <button id="goBack-btn">Go Back</button>
   `;
   document.querySelector("#goBack-btn").addEventListener("click", homeBtns);
-  document.querySelector("#attack-move-1").addEventListener("click", () => { attackMove("rage"); homeBtns(); });
-  document.querySelector("#attack-move-2").addEventListener("click", () => { attackMove("slash"); homeBtns(); });
+  document.querySelector("#attack-move-1").addEventListener("click", () => { attackMove("slash"); homeBtns(); });
+  document.querySelector("#attack-move-2").addEventListener("click", () => { attackMove("rage"); homeBtns(); });
   document.querySelector("#attack-move-3").addEventListener("click", () => { attackMove("cleave"); homeBtns(); });
 };
 

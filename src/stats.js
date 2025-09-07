@@ -13,10 +13,16 @@ export const playerStats = {
 export const dragonStats = {
   dragonCurrentHealth: 250,
   dragonMaxHealth: 250,
+  dragonHardenedSkin: false,
+  dragonHardenedSkinDuration: 0
 };
 
 export const updateDragonHealth = (modifier) => {
   dragonStats.dragonCurrentHealth += modifier;
+  if(dragonStats.dragonHardenedSkin && dragonStats.dragonHardenedSkinDuration != 0){
+    dragonStats.dragonCurrentHealth += 20;
+    dragonStats.dragonHardenedSkinDuration--
+  }
   if (dragonStats.dragonCurrentHealth <= 0) {
     dragonStats.dragonCurrentHealth = 0;
     alert("The dragon was defeated!");

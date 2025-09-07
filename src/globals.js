@@ -13,26 +13,33 @@ export const textContainer = document.querySelector("#text-container");
 export const youLoseMsg = document.querySelector(".you-lose");
 export const youLoseBtn = document.querySelector("#you-lose-btn");
 
-export let gameIsActive = true;
-export let isPlayerTurn = true;
-export let isDragonTurn = false;
+export const gameState = {
+  gameIsActive: true,
+  isPlayerTurn: true,
+  isDragonTurn: false,
+  currentTurn: 0,
+};
 
 export const setTurns = (player, dragon) => {
-  isPlayerTurn = player;
-  isDragonTurn = dragon;
+  gameState.isPlayerTurn = player;
+  gameState.isDragonTurn = dragon;
 };
 
 export const resetGame = () => {
-  playerStats.playerCurrentHealth = playerStats.playerMaxHealth;
-  playerStats.playerCurrentMana = playerStats.playerMaxMana;
-  dragonStats.dragonCurrentHealth = dragonStats.dragonMaxHealth;
-  playerHealth.textContent = playerStats.playerMaxHealth;
-  playerMana.textContent = playerStats.playerMaxMana;
-  dragonHealth.textContent = dragonStats.dragonMaxHealth;
-  gameIsActive = true;
-  isPlayerTurn = true;
-  isDragonTurn = false;
-  youLoseMsg.style.display = "none";
-  textContainer.innerHTML = "";
-  homeBtns();
+  try {
+    playerStats.playerCurrentHealth = playerStats.playerMaxHealth;
+    playerStats.playerCurrentMana = playerStats.playerMaxMana;
+    dragonStats.dragonCurrentHealth = dragonStats.dragonMaxHealth;
+    playerHealth.textContent = playerStats.playerMaxHealth;
+    playerMana.textContent = playerStats.playerMaxMana;
+    dragonHealth.textContent = dragonStats.dragonMaxHealth;
+    gameState.gameIsActive = true;
+    gameState.isPlayerTurn = true;
+    gameState.isDragonTurn = false;
+    youLoseMsg.style.display = "none";
+    textContainer.innerHTML = "";
+    homeBtns();
+  } catch (error) {
+    console.error(error);
+  }
 };
