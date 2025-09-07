@@ -8,7 +8,7 @@ export const dragonAttack = () => {
     console.log("Dragon chance: ", dragonMoveChance);
     if (dragonMoveChance > 3) {
       dragonMoveFlameBreath();
-    } else if (dragonMoveChance < 4 && dragonMoveChance > 2) {
+    } else if (dragonMoveChance === 3) {
       dragonMoveHarden();
     } else {
       updateTextMenu("The dragon is gathering it's strength");

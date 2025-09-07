@@ -1,4 +1,5 @@
 import * as dragon from "./dragon.js";
+import { dragonAttack } from "./dragon.js";
 import { playerStats, dragonStats } from "./stats.js";
 import {
   homeBtns,
@@ -29,6 +30,12 @@ export const setTurns = (player, dragon) => {
   gameState.isPlayerTurn = player;
   gameState.isDragonTurn = dragon;
 };
+
+export const endPlayerTurn = () => {
+  setTurns(false, true);
+  gameState.currentTurn++;
+  setTimeout(() => {dragonAttack()}, 1500);
+}
 
 export const resetGame = () => {
   try {

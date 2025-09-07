@@ -4,7 +4,7 @@ import {
   updatePlayerMana,
   playerStats,
 } from "./stats.js";
-import { setTurns, gameState } from "./globals.js";
+import { setTurns, gameState, endPlayerTurn } from "./globals.js";
 import { dragonAttack } from "./dragon.js";
 import { updateTextMenu } from "./ui.js";
 
@@ -16,9 +16,7 @@ export const attackMove = (option) => {
         dmgValue = -10;
         updateDragonHealth(dmgValue);
         updateTextMenu(`You attacked with slash for ${Math.abs(dmgValue)} 🗡️`);
-        setTurns(false, true);
-        dragonAttack();
-        gameState.currentTurn++;
+        endPlayerTurn()
         break;
       case "rage":
         dmgValue = -30;
@@ -29,9 +27,7 @@ export const attackMove = (option) => {
             dmgValue
           )} 🗡️`
         );
-        setTurns(false, true);
-        dragonAttack();
-        gameState.currentTurn++;
+        endPlayerTurn()
         break;
       case "cleave":
         dmgValue = -50;
@@ -44,9 +40,7 @@ export const attackMove = (option) => {
         } else {
           updateTextMenu("You missed!");
         }
-        setTurns(false, true);
-        dragonAttack();
-        gameState.currentTurn++;
+        endPlayerTurn()
         break;
       default:
         throw new Error();
@@ -63,9 +57,7 @@ export const itemMove = (option) => {
         if (playerStats.playerHealthPots > 0) {
           playerStats.playerHealthPots -= 1;
           updatePlayerHealth(40);
-          setTurns(false, true);
-          dragonAttack();
-          gameState.currentTurn++;
+          endPlayerTurn()
         } else {
           alert("You don't have any healh pots left!");
         }
@@ -73,9 +65,7 @@ export const itemMove = (option) => {
       case "Mana Pot":
         if (playerStats.playerManaPots > 0) {
           playerStats.playerManaPots -= 1;
-          setTurns(false, true);
-          dragonAttack();
-          gameState.currentTurn++;
+          endPlayerTurn()
         } else {
           alert("You don't have any mana pots left!");
         }
@@ -84,9 +74,7 @@ export const itemMove = (option) => {
         if (playerStats.playerFullHealPot > 0) {
           playerStats.playerFullHealPot -= 1;
           playerStats.playerCurrentHealth = playerStats.playerMaxHealth;
-          setTurns(false, true);
-          dragonAttack();
-          gameState.currentTurn++;
+          endPlayerTurn()
         } else {
           alert("You don't have any full heal pots left!");
         }
@@ -108,9 +96,7 @@ export const magicMove = (option) => {
         } else {
           updateDragonHealth(-40);
           updatePlayerMana(-40);
-          setTurns(false, true);
-          dragonAttack();
-          gameState.currentTurn++;
+          endPlayerTurn()
         }
         break;
       case "Barrier":
@@ -122,9 +108,7 @@ export const magicMove = (option) => {
       case "Enchant Sword":
         playerStats.playerCurrentHealth = playerStats.playerMaxHealth;
         updatePlayerHealth(0);
-        setTurns(false, true);
-        dragonAttack();
-        gameState.currentTurn++;
+        endPlayerTurn()
         break;
       default:
         throw new error();

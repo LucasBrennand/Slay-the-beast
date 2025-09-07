@@ -92,11 +92,4 @@ export const updatePlayerMana = (modifier) => {
   playerManaBar.style.width = `${percentage}%`;
 
   playerMana.textContent = playerStats.playerCurrentMana;
-
-  playerStats.playerCurrentMana += modifier;
-  if (playerStats.playerCurrentMana <= 0) {
-    playerStats.playerCurrentMana = 0;
-    playerManaBar.style.width = `0%`;
-  }
-  playerMana.textContent = playerStats.playerCurrentMana;
 };
