@@ -3,6 +3,7 @@ import {
   playerHealth,
   playerMana,
   youLoseMsg,
+  youWinMsg
 } from "./globals.js";
 import { playerHealthBar, playerManaBar, dragonHealthBar } from "./ui.js";
 
@@ -28,8 +29,7 @@ export const updateDragonHealth = (modifier) => {
 
   if (
     dragonStats.dragonHardenedSkin &&
-    dragonStats.dragonHardenedSkinDuration !== 0
-  ) {
+    dragonStats.dragonHardenedSkinDuration !== 0 && modifier > 0) {
     dragonStats.dragonCurrentHealth += 20;
     dragonStats.dragonHardenedSkinDuration--;
   }
@@ -39,7 +39,7 @@ export const updateDragonHealth = (modifier) => {
   }
   if (dragonStats.dragonCurrentHealth <= 0) {
     dragonStats.dragonCurrentHealth = 0;
-    alert("The dragon was defeated!");
+    youWinMsg.style.display = "flex";
   }
 
   const percentage =

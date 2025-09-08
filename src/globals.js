@@ -17,7 +17,9 @@ export const playerHealth = document.querySelector("#player-health");
 export const playerMana = document.querySelector("#player-mana");
 export const textContainer = document.querySelector("#text-container");
 export const youLoseMsg = document.querySelector(".you-lose");
+export const youWinMsg = document.querySelector(".you-win");
 export const youLoseBtn = document.querySelector("#you-lose-btn");
+export const youWinBtn = document.querySelector("#you-win-btn");
 
 export const gameState = {
   gameIsActive: true,
@@ -34,7 +36,7 @@ export const setTurns = (player, dragon) => {
 export const endPlayerTurn = () => {
   setTurns(false, true);
   gameState.currentTurn++;
-  setTimeout(() => {dragonAttack()}, 1500);
+  setTimeout(() => {dragonAttack()}, 1000);
 }
 
 export const resetGame = () => {
@@ -56,6 +58,7 @@ export const resetGame = () => {
     gameState.isPlayerTurn = true;
     gameState.isDragonTurn = false;
     youLoseMsg.style.display = "none";
+    youWinMsg.style.display = "none"
     textContainer.innerHTML = "";
     homeBtns();
   } catch (error) {

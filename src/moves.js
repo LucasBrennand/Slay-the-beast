@@ -57,6 +57,8 @@ export const itemMove = (option) => {
         if (playerStats.playerHealthPots > 0) {
           playerStats.playerHealthPots -= 1;
           updatePlayerHealth(40);
+          updateTextMenu("You used a health pot and healed for 40 ❤️")
+          updateTextMenu(`You have ${playerStats.playerHealthPots} health pots left`)
           endPlayerTurn()
         } else {
           alert("You don't have any healh pots left!");
@@ -65,6 +67,9 @@ export const itemMove = (option) => {
       case "Mana Pot":
         if (playerStats.playerManaPots > 0) {
           playerStats.playerManaPots -= 1;
+          updatePlayerMana(40)
+          updateTextMenu("You used a mana pot and regained 40 💙")
+          updateTextMenu(`You have ${playerStats.playerManaPots} mana pots left`)
           endPlayerTurn()
         } else {
           alert("You don't have any mana pots left!");
@@ -73,7 +78,9 @@ export const itemMove = (option) => {
       case "Full Heal":
         if (playerStats.playerFullHealPot > 0) {
           playerStats.playerFullHealPot -= 1;
-          playerStats.playerCurrentHealth = playerStats.playerMaxHealth;
+          updatePlayerHealth(playerStats.playerMaxHealth)
+          updateTextMenu("You used a full heal pot")
+          updateTextMenu(`You have ${playerStats.playerFullHealPot} full heal pots left`)
           endPlayerTurn()
         } else {
           alert("You don't have any full heal pots left!");
@@ -96,6 +103,7 @@ export const magicMove = (option) => {
         } else {
           updateDragonHealth(-40);
           updatePlayerMana(-40);
+          updateTextMenu("You cast fireball and did 40 🗡️")
           endPlayerTurn()
         }
         break;

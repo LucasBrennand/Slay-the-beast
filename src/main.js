@@ -6,6 +6,7 @@ import {
   dragonHealth,
   youLoseBtn,
   youLoseMsg,
+  youWinBtn,
   resetGame,
 } from "./globals.js";
 
@@ -19,6 +20,10 @@ function main() {
   youLoseBtn.addEventListener("click", () => {
     resetGame();
   });
+
+  youWinBtn.addEventListener("click", () => {
+    resetGame()
+  })
 }
 
 main();
